@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,6 +24,7 @@
     <h1>¡Hola! Soy Damián Correa 👋</h1>
     <p>Estudiante de programación | Desarrollador en formación</p>
     <a href="#proyectos" class="btn">Ver mis proyectos</a>
+
   </header>
 
   <!-- ---------- SOBRE MÍ ---------- -->
@@ -41,11 +42,9 @@
   </div>
 </section>
 
-
-
   <!-- ---------- PROYECTOS ---------- -->
   <section id="proyectos">
-    <h2>Proyectos</h2>
+    <h2>Proyectos (tareas universitarias)</h2>
     <div class="projects">
       <div class="project fade-in">
         <h3>Sistema de alquiler de cocheras</h3>
@@ -75,25 +74,36 @@
   </section>
 
   <!-- ---------- FORMACIÓN ---------- -->
-  <section id="formacion">
+ <section id="formacion">
   <h2>Formación</h2>
-  <div class="fade-in">
-    <p>🎓 Técnico en Programación — [Nombre de tu universidad o instituto actual]</p>
-    <p>📍 Villa Maria, Córdoba</p>
-    <p>📅 2024 – Actualidad</p>
-    <br />
-    <p>🎓 Secundario completo — Instituto General Manuel Belgrano</p>
-    <p>📍 Pozo del Molle, Córdoba</p>
-    <p>📅 Finalizado</p>
+  <div class="formacion-container fade-in">
+
+    <button class="formacion-boton" onclick="window.open('https://maps.google.com/?q=Instituto+General+Manuel+Belgrano+Pozo+del+Molle+Córdoba')">
+      🎓 | Bachiller con orientación en Informatica.
+ <br>
+      <span>🏫 | Instituto General Manuel Belgrano</span>
+      <span>📍 | Pozo del Molle, Córdoba</span>
+ <br>
+      <span>2018 - 2023</span>
+    </button>
+
+    <button class="formacion-boton" onclick="window.open('https://maps.google.com/?q=[NOMBRE+DE+TU+UNIVERSIDAD+O+INSTITUTO]')">
+      💻 | Técnico universitario en Programación. <br>
+      <span>🏫 | UTN - Facultad Regional de Villa Maria</span>
+      <span>📍 | Villa María, Córdoba</span>
+      <br><span>2024 - Presente</span>
+    </button>
+
   </div>
 </section>
+
 
 
 
   <!-- ---------- CONTACTO ---------- -->
   <section id="contacto">
     <h2>Contacto</h2>
-    <p class="fade-in">¿Querés contactarme? Podés hacerlo por los siguientes medios:</p>
+    <p class="fade-in">Si te interesa lo que hago podés hablarme sin compromiso por aqui: </p>
     <div class="contact-links fade-in">
   <a href="mailto:damian.correa@email.com">📧 Email</a>
   <a href="https://github.com/">💻 GitHub</a>
