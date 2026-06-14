@@ -27,3 +27,34 @@ window.addEventListener("scroll", () => {
     navbar.style.backgroundColor = "#4c4cff";
   }
 });
+
+function openGmailApp(event) {
+  event.preventDefault();
+
+  const email = "correadamian882@gmail.com";
+  const gmailAndroidIntent = `intent://mail.google.com/mail/?to=${encodeURIComponent(email)}#Intent;scheme=https;package=com.google.android.gm;end`;
+  const gmailIos = `googlegmail://co?to=${encodeURIComponent(email)}`;
+  const playStoreUrl = "https://play.google.com/store/apps/details?id=com.google.android.gm";
+  const appStoreUrl = "https://apps.apple.com/app/gmail-email-by-google/id422689480";
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const fallbackUrl = isAndroid ? playStoreUrl : isIOS ? appStoreUrl : `mailto:${email}`;
+
+  if (isAndroid) {
+    window.location.href = gmailAndroidIntent;
+  } else if (isIOS) {
+    window.location.href = gmailIos;
+  } else {
+    window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+    return;
+  }
+
+  setTimeout(() => {
+    window.location.href = fallbackUrl;
+  }, 1200);
+}
+
+const gmailLink = document.getElementById("gmail-link");
+if (gmailLink) {
+  gmailLink.addEventListener("click", openGmailApp);
+}
