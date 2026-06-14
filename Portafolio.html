@@ -9,7 +9,7 @@
 <body>
   <!-- ---------- NAVBAR ---------- -->
   <nav class="navbar">
-    <div class="logo">Damián Correa | Tecnico Programador</div>
+    <div class="logo">Damián Correa | Tecnico Programador 👨🏻‍💻</div>
     <ul class="nav-links">
       <li><a href="#sobre-mi">Sobre mí</a></li>
       <li><a href="#proyectos">Proyectos</a></li>
@@ -21,10 +21,43 @@
 
   <!-- ---------- INICIO ---------- -->
   <header class="hero">
+    <div class="hero-bg-decor" aria-hidden="true">
+      <pre class="hero-bg-code"><code>const user = {
+  name: "Damián",
+  role: "Desarrollador en formación",
+  tech: ["HTML", "CSS", "JavaScript", "Java", "MySQL"]
+};
+
+function greet() {
+  const message = `¡Hola, soy ${user.name}!`;
+  return message;
+}
+
+const ui = [
+  "Inicio",
+  "Sobre mí",
+  "Proyectos",
+  "Contacto"
+];
+
+const background = {
+  type: "code",
+  style: "decorative",
+  visible: true
+};
+
+for (const section of ui) {
+  console.log(`Renderizando ${section}`);
+}
+
+// Decoración de fondo con código
+console.log(greet());
+</code></pre>
+    </div>
+
     <h1>¡Hola! Soy Damián Correa 👋</h1>
     <p>Estudiante de programación | Desarrollador en formación</p>
     <a href="#proyectos" class="btn">Ver mis proyectos</a>
-
   </header>
 
   <!-- ---------- SOBRE MÍ ---------- -->
@@ -34,8 +67,8 @@
     <img src="img/damian.jpg" alt="Foto de Damián Correa" class="perfil-foto" />
     <div class="about-text">
       <p>
-        Soy Damián Correa, estudiante de Programación con pasión por el desarrollo de sistemas y la creación de soluciones digitales.  
-        Me encanta aprender nuevas tecnologías y aplicar mis conocimientos en proyectos reales.  
+        Soy Damián Correa, tengo 20 años de edad soy estudiante de Programación con pasión por el desarrollo de sistemas y la creación de soluciones digitales.  
+        Me encanta aprender nuevas tecnologías y aplicar mis conocimientos previos en proyectos reales.  
         Busco crecer profesionalmente y seguir perfeccionando mis habilidades.
       </p>
     </div>
@@ -56,6 +89,11 @@
         <p><strong>Tecnologías:</strong> Java</p>
         <p>Aplicación para analizar sensores de establecimientos y visualizar su estado en tiempo real.</p>
       </div>
+      <div class="project fade-in">
+        <h3>Pintureria</h3>
+        <p><strong>Tecnologías:</strong> Django, SQLite, Supabase, Gunicorn, JavaScript</p>
+        <p>Aplicación e-commerce con gestión de usuarios, productos, carrito y administración.</p>
+      </div>
     </div>
   </section>
 
@@ -64,6 +102,7 @@
     <h2>Habilidades</h2>
     <div class="skills-list fade-in">
       <span>Java</span>
+      <span>Python</span>
       <span>HTML</span>
       <span>CSS</span>
       <span>JavaScript</span>
@@ -87,7 +126,7 @@
       <span>2018 - 2023</span>
     </button>
 
-    <button class="formacion-boton" onclick="window.open('https://maps.google.com/?q=[NOMBRE+DE+TU+UNIVERSIDAD+O+INSTITUTO]')">
+    <button class="formacion-boton" onclick="window.open('https://maps.google.com/?q=[UTN+Villa+Maria]')">
       💻 | Técnico universitario en Programación. <br>
       <span>🏫 | UTN - Facultad Regional de Villa Maria</span>
       <span>📍 | Villa María, Córdoba</span>
