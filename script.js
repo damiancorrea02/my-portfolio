@@ -32,7 +32,7 @@ function openGmailApp(event) {
   event.preventDefault();
 
   const email = "correadamian882@gmail.com";
-  const gmailAndroidIntent = `intent://compose?to=${encodeURIComponent(email)}#Intent;package=com.google.android.gm;scheme=mailto;end`;
+  const gmailAndroidIntent = `intent://compose?to=${encodeURIComponent(email)}#Intent;scheme=mailto;package=com.google.android.gm;end`;
   const gmailIos = `googlegmail://co?to=${encodeURIComponent(email)}`;
   const playStoreUrl = "https://play.google.com/store/apps/details?id=com.google.android.gm";
   const appStoreUrl = "https://apps.apple.com/app/gmail-email-by-google/id422689480";
@@ -40,18 +40,47 @@ function openGmailApp(event) {
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
   const fallbackUrl = isAndroid ? playStoreUrl : isIOS ? appStoreUrl : `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
 
+  let appOpened = false;
+  const onVisibilityChange = () => {
+    if (document.hidden || document.visibilityState === "hidden") {
+      appOpened = true;
+      cleanup();
+    }
+  };
+  const onBlur = () => {
+    appOpened = true;
+    cleanup();
+  };
+  const onPageHide = () => {
+    appOpened = true;
+    cleanup();
+  };
+  const cleanup = () => {
+    document.removeEventListener("visibilitychange", onVisibilityChange);
+    window.removeEventListener("blur", onBlur);
+    window.removeEventListener("pagehide", onPageHide);
+  };
+
+  document.addEventListener("visibilitychange", onVisibilityChange);
+  window.addEventListener("blur", onBlur);
+  window.addEventListener("pagehide", onPageHide);
+
   if (isAndroid) {
     window.location.href = gmailAndroidIntent;
   } else if (isIOS) {
     window.location.href = gmailIos;
   } else {
     window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+    cleanup();
     return;
   }
 
   setTimeout(() => {
-    window.location.href = fallbackUrl;
-  }, 1500);
+    if (!appOpened) {
+      window.location.href = fallbackUrl;
+    }
+    cleanup();
+  }, 2500);
 }
 
 const gmailLink = document.getElementById("gmail-link");
