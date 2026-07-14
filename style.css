@@ -205,6 +205,24 @@ body {
   color: white;
 }
 
+.btn-proyecto {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #4c4cff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-proyecto:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
 /* ---------- SECCIONES ---------- */
 section {
   padding: 5rem 10%;
